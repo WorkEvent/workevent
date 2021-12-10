@@ -17,9 +17,22 @@ app.listen(port, () => {
 
 MongoClient.connect(uri, { useUnifiedTopology: true },function(err, db) {
   if (err) throw err;
+  let dbo = db.db("devlab15");
+
+
   if ( !err){
     console.log('It Works !')
   }
+
+  dbo.collection("event").find({}).toArray(function(err, res) {
+    if (err) throw err;
+    console.log(res);
+    db.close()
+
+  });
+
+
+
 });
 
 
