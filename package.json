@@ -1,0 +1,22 @@
+{
+  "name": "workevent",
+  "version": "1.0.0",
+  "description": "projet devlab 21",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theopopelin/workevent.git"
+  },
+  "author": "equipe 15",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theopopelin/workevent/issues"
+  },
+  "homepage": "https://github.com/theopopelin/workevent#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
