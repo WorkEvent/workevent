@@ -17,6 +17,18 @@ app.get('/register', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/inscription.html'));
 });
 
+app.get('/login', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/connexion.html'));
+});
+
+app.get('/afterwork', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/afterwork.html'));
+});
+
+app.get('/poll', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/poll.html'));
+});
+
 
 
 
