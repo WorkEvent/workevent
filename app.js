@@ -29,12 +29,12 @@ app.get('/poll', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/poll.html'));
 });
 
-
-
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
+
+app.use
+
 
 MongoClient.connect(uri, { useUnifiedTopology: true },function(err, db) {
   if (err) throw err;
