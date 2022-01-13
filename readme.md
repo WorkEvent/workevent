@@ -1,7 +1,24 @@
-## WORKEVENT PROJET DEVLAB S1 21 
+# mevn
 
-- Théo Popelin
-- Eliott Demont
-- Antoine Duplouy
-- Valentin Bonamy
-- Florent Trouillet
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
