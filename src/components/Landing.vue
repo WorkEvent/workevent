@@ -1,12 +1,23 @@
 <template>
   <div>
-    <button @click="logout">logout</button>
+    <button @click="logout">Se déconnecter</button>
     <h1>HELLO {{ name }}</h1>
     <h2>your email is: {{ email }}</h2>
     <h2>{{ this.eventname }}</h2>
-    <ul id="eventlist">
 
-    </ul>
+
+    <ul id="eventlist"></ul>
+
+    <v-card
+        elevation="2"
+        
+    >
+      Bonjour
+
+    </v-card>
+
+
+
 
 
 

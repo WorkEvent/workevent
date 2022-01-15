@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //routes
-app.post('/signup', (req, res, next) => {
+app.post('/signup', (req, res) => {
     const newUser = new User({
         email: req.body.email,
         name: req.body.name,
@@ -38,7 +38,7 @@ app.post('/signup', (req, res, next) => {
 
 
 
-app.post('/login', (req, res, next) => {
+app.post('/login', (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if (err) return res.status(500).json({
             title: 'server error',
@@ -64,7 +64,7 @@ app.post('/login', (req, res, next) => {
     })
 })
 
-app.get('/user', (req, res, next) => {
+app.get('/user', (req, res) => {
     let token = req.headers.token; //token
     jwt.verify(token, 'secretkey', (err, decoded) => {
         if (err) return res.status(401).json({
@@ -85,7 +85,7 @@ app.get('/user', (req, res, next) => {
     })
 })
 
-app.get('/event', (req, res, next) => {
+app.get('/event', (req, res) => {
 
     Event.find({},function (err,eventdb) {
         if (err) return console.log(err);

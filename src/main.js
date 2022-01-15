@@ -5,6 +5,7 @@ import Landing from './components/Landing';
 import Signup from './components/SignUp';
 import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import vuetify from './plugins/vuetify'
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,8 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  vuetify,
+
   render: h => {
     return h(App)
   }
