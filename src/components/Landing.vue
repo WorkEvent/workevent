@@ -3,21 +3,11 @@
     <button @click="logout">Se déconnecter</button>
     <h1>HELLO {{ name }}</h1>
     <h2>your email is: {{ email }}</h2>
-    <h2>{{ this.eventname }}</h2>
 
 
-    <ul id="eventlist"></ul>
-
-    <v-card
-        elevation="2"
-        
-    >
-      Bonjour
-
-    </v-card>
-
-
-
+    <ul v-for="item in eventname" :key="item.eventid">
+      {{ item.name }}
+    </ul>
 
 
 
@@ -31,7 +21,8 @@ export default {
     return {
       name: '',
       email: '',
-      eventid : null,
+      eventkdo : '',
+      eventid : Number,
       eventname : [],
       eventattendance : undefined
     }
@@ -50,16 +41,11 @@ export default {
     axios.get('http://localhost:5000/event')
       .then(res => {
 
-        let toto = document.getElementById('eventlist');
-
-
-        for (let i = 0; i <= res.data.length; i++){
-
-          toto.innerHTML += '<li>' + res.data[i].name + '</li>'
-        }
-
+        this.eventname = res.data
+        console.log(this.eventname)
 
       })
+
   },
   methods: {
     logout() {
