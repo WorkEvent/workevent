@@ -52,7 +52,6 @@ export default {
       }
       axios.post('http://localhost:5000/login', user)
           .then(res => {
-            //if successfull
             if (res.status === 200) {
               localStorage.setItem('token', res.data.token);
               this.$router.push('/');

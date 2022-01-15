@@ -45,14 +45,12 @@ app.post('/login', (req, res, next) => {
                 error: 'invalid credentials'
             })
         }
-        //incorrect password
         if (!bcrypt.compareSync(req.body.password, user.password)) {
             return res.status(401).json({
                 tite: 'login failed',
                 error: 'invalid credentials'
             })
         }
-        //IF ALL IS GOOD create a token and send to frontend
         let token = jwt.sign({ userId: user._id}, 'secretkey');
         return res.status(200).json({
             title: 'login sucess',
@@ -61,7 +59,6 @@ app.post('/login', (req, res, next) => {
     })
 })
 
-//grabbing user info
 app.get('/user', (req, res, next) => {
     let token = req.headers.token; //token
     jwt.verify(token, 'secretkey', (err, decoded) => {

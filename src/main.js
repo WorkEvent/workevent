@@ -6,7 +6,7 @@ import Signup from './components/SignUp';
 import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-Vue.use(VueRouter); //IMPORTANT
+Vue.use(VueRouter);
 
 const routes = [
   { path: '/', component: Landing },
