@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const User = require('./models/User');
+const Event = require('./models/Event');
+
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
@@ -33,6 +35,9 @@ app.post('/signup', (req, res, next) => {
         })
     })
 })
+
+
+
 app.post('/login', (req, res, next) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if (err) return res.status(500).json({
@@ -65,19 +70,35 @@ app.get('/user', (req, res, next) => {
         if (err) return res.status(401).json({
             title: 'unauthorized'
         })
+
         User.findOne({ _id: decoded.userId }, (err, user) => {
             if (err) return console.log(err)
             return res.status(200).json({
                 title: 'user grabbed',
                 user: {
                     email: user.email,
-                    name: user.name
+                    name: user.name,
+                    event : user.event
                 }
             })
         })
-
     })
 })
+
+app.get('/event', (req, res, next) => {
+
+    Event.find({},function (err,eventdb) {
+        if (err) return console.log(err);
+        else {
+
+            return res.json(eventdb)
+        }
+    })
+
+
+})
+
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, (err) => {
