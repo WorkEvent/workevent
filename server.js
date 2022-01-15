@@ -65,7 +65,6 @@ app.get('/user', (req, res, next) => {
         if (err) return res.status(401).json({
             title: 'unauthorized'
         })
-        //token is valid
         User.findOne({ _id: decoded.userId }, (err, user) => {
             if (err) return console.log(err)
             return res.status(200).json({
