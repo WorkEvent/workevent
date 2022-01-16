@@ -36,6 +36,30 @@ app.post('/signup', (req, res) => {
     })
 })
 
+app.post('/newevent', (req, res) => {
+    const newEvent = new Event({
+        eventid : req.body.eventid,
+        name : req.body.name,
+        attendance : req.body.attendance,
+        type : req.body.type,
+        time : req.body.time,
+        picture : req.body.picture,
+    })
+    newEvent.save(err => {
+        if (err) {
+            return res.status(400).json({
+                title: 'error',
+                error: 'eventid in use'
+            })
+        }
+        return res.status(200).json({
+            title: 'Event added'
+        })
+    })
+})
+
+
+
 
 
 app.post('/login', (req, res) => {
@@ -97,7 +121,6 @@ app.get('/event', (req, res) => {
 
 
 })
-
 
 const port = process.env.PORT || 5000;
 

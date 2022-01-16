@@ -23,15 +23,9 @@
             <button class="w-100 login-button-click" @click="clickLogin">Connexion</button>
           </div>
         </div>
-
-
-
-
       </div>
       <div class="col-6 right-login">
         <img src="../assets/WORK EVENT_BLANC.png" alt="logo" class="logo-img w-50">
-
-
       </div>
     </div>
   </div>

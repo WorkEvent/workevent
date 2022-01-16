@@ -1,202 +1,75 @@
 <template>
   <div>
     <button @click="logout">Se déconnecter</button>
-    <h1>HELLO {{ name }}</h1>
-    <h2>your email is: {{ email }}</h2>
+    <h2>Bonjour {{ name }}</h2>
 <br><br>
 
     <div class="grid-container">
 
-      <v-card
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
-  >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
+      <ul v-for="item in eventname" :key="item.eventid">
+        <v-card
+            :loading="loading"
+            class="mx-auto my-12"
+            max-width="344"
+        >
+          <template slot="progress">
+            <v-progress-linear
+                color="deep-purple"
+                height="10"
+                indeterminate
+            ></v-progress-linear>
+          </template>
 
-    <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
+          <v-img
+              height="250"
+              :src="item.picture"
+          ></v-img>
 
-    <v-card-title>Bar - l'aubrac</v-card-title>
+          <v-card-title>{{ item.name }}</v-card-title>
 
-    <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-      </v-row>
+          <v-card-text>
+            <v-row
+                align="center"
+                class="mx-0"
+            >
+            </v-row>
 
-      <div class="my-4 text-subtitle-1">
-        <b>Ambiance, Bar</b>
-      </div>
+            <div class="my-4 text-subtitle-1">
+              <b>{{ item.typeofevent }}</b>
+            </div>
 
-      <div>Bar prévu pour un maximum de 40 personnes</div>
-    </v-card-text>
+            <div>{{ item.typeofevent }} prévu pour un maximum de <b>{{ item.attendance }}</b> personnes</div>
+          </v-card-text>
 
-    <v-divider class="mx-4"></v-divider>
+          <v-divider class="mx-4"></v-divider>
 
-    <v-card-title>Horaire prévu</v-card-title>
+          <v-card-title>{{ item.time }}</v-card-title>
 
-    <v-card-text>
-      <v-chip-group
-        v-model="selection"
-        active-class="deep-purple accent-4 white--text"
-        column
-      >
-        <v-chip>21:00</v-chip>
-      </v-chip-group>
-    </v-card-text>
+          <v-card-text>
+            <v-chip-group
+                v-model="selection"
+                active-class="deep-purple accent-4 white--text"
+                column
+            >
+              <v-chip>{{ item.time }}</v-chip>
+            </v-chip-group>
+          </v-card-text>
 
-    <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="reserve"
-      >
-        Voter
-      </v-btn>
-    </v-card-actions>
-  </v-card>
-
-  <v-card
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
-  >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
-
-    <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
-
-    <v-card-title>Bar - l'aubrac</v-card-title>
-
-    <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-      </v-row>
-
-      <div class="my-4 text-subtitle-1">
-        <b>Ambiance, Bar</b>
-      </div>
-
-      <div>Bar prévu pour un maximum de 40 personnes</div>
-    </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Horaire prévu</v-card-title>
-
-    <v-card-text>
-      <v-chip-group
-        v-model="selection"
-        active-class="deep-purple accent-4 white--text"
-        column
-      >
-        <v-chip>21:00</v-chip>
-      </v-chip-group>
-    </v-card-text>
-
-    <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="reserve"
-      >
-        Voter
-      </v-btn>
-    </v-card-actions>
-  </v-card>
-  <v-card
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
-  >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
-
-    <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
-
-    <v-card-title>Bar - l'aubrac</v-card-title>
-
-    <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-      </v-row>
-
-      <div class="my-4 text-subtitle-1">
-        <b>Ambiance, Bar</b>
-      </div>
-
-      <div>Bar prévu pour un maximum de 40 personnes</div>
-    </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Horaire prévu</v-card-title>
-
-    <v-card-text>
-      <v-chip-group
-        v-model="selection"
-        active-class="deep-purple accent-4 white--text"
-        column
-      >
-        <v-chip>21:00</v-chip>
-      </v-chip-group>
-    </v-card-text>
-
-    <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="reserve"
-      >
-        Voter
-      </v-btn>
-    </v-card-actions>
-  </v-card>
-
-  
-
-     
-
-
-
-
-
-
+          <v-card-actions>
+            <v-btn
+                color="deep-purple lighten-2"
+                text
+                @click="reserve"
+            >
+              Voter
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </ul>
     </div>
     <br>
 
-    <v-btn @click="retur" class="retur" color="yellow" elevation="2"> Retour
-      </v-btn>
+    <v-btn @click="retur" class="retur" color="yellow" elevation="2"> Retour </v-btn>
       
 
 
@@ -236,8 +109,8 @@ export default {
 
         this.eventname = res.data
         console.log(this.eventname)
-
       })
+
 
   },
   methods: {
@@ -247,7 +120,7 @@ export default {
     },
     retur(){
         this.$router.push('/');
-    }
+    },
   }
 }
 </script>

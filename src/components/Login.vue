@@ -19,13 +19,7 @@
           <div class="login-button col-12 ml-5 w-100 pt-4">
             <button class="w-100 login-button-click" @click="clickSign">Inscription</button>
           </div>
-
-
         </div>
-
-
-
-
       </div>
       <div class="col-6 right-login">
         <img src="../assets/WORK EVENT_BLANC.png" alt="logo" class="logo-img w-50">
