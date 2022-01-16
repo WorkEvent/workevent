@@ -7,19 +7,9 @@
 
     <div class="grid-container">
 
-      <v-card v-for="item in eventname" :key="item.eventid"
-       min-height="300"
-       max-width="200"
-       class=""
-       elevation="2"
-      >
-        <v-card-title>{{ item.name }}</v-card-title>
-        <v-card-subtitle>01/01/1970 - {{ item.attendance }}</v-card-subtitle>
-        <v-card-text>Does everybody know that pig named Lorem Ipsum ? Some people have an ability to write placeholder text…</v-card-text>
+     
 
-
-
-      </v-card>
+     
 
 
 
@@ -27,7 +17,8 @@
 
 
     </div>
-
+      <v-btn @click="govote" class="vote" color="yellow" elevation="2"> Voter
+      </v-btn>
 
 
 
@@ -74,6 +65,10 @@ export default {
     logout() {
       localStorage.clear();
       this.$router.push('/login');
+    },
+
+    govote() {
+      this.$router.push('/vote');
     }
   }
 }
@@ -90,4 +85,11 @@ export default {
   column-gap: 30px;
 
 }
+
+.vote {
+  width : 150px;
+  margin-left: 47%;
+  margin-top : 2%;
+}
+
 </style>
