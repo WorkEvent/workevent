@@ -5,23 +5,16 @@
     <h2>your email is: {{ email }}</h2>
 
 
-    <div class="grid-container">
-
-     
-
-     
-
-
-
-
-
-
-    </div>
+    <div class="grid-container"></div>
       <v-btn @click="govote" class="vote" color="yellow" elevation="2"> Voter
       </v-btn>
 
 
 
+
+    <ul v-for="item in eventname" :key="item.eventid">
+      {{ item.name }}
+    </ul>
 
 
 
