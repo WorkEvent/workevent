@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-6 left-login mt-5">
+      <div class="col-6 left-login mb-5">
 
         <div class="col-8 login-section">
           <div class="login-title">
@@ -14,12 +14,15 @@
             <p>Email :</p> <input class="w-100 input-area" type="text" v-model="email">
           </div>
           <div class="input-mail col-12 pt-2">
+            <p>Société : </p> <input class="w-100 input-area" type="text" v-model="enterprise">
+          </div>
+          <div class="input-mail col-12 pt-2">
             <p>Mot de passe :</p> <input class="w-100 input-area" type="password" v-model="password">
           </div>
-          <div class="login-button col-12 ml-5 w-100 pt-4">
+          <div class="login-button col-12 ml-5 w-100 pt-3">
             <button class="w-100 login-button-click" @click="signup">Inscription</button>
           </div>
-          <div class="login-button col-12 ml-5 w-100 pt-4">
+          <div class="login-button col-12 ml-5 w-100 pt-2">
             <button class="w-100 login-button-click" @click="clickLogin">Connexion</button>
           </div>
         </div>
@@ -39,7 +42,7 @@ export default {
       name: '',
       email: '',
       password: '',
-      error: '',
+      enterprise :''
     }
   },
   methods: {
@@ -47,7 +50,8 @@ export default {
       let newUser = {
         name: this.name,
         email: this.email,
-        password: this.password
+        password: this.password,
+        enterprise : this.enterprise
       }
       axios.post('http://localhost:5000/signup', newUser)
           .then(res => {
@@ -70,7 +74,7 @@ export default {
 
 .login-section {
   height: 50vh;
-  margin: 25% auto auto;
+  margin: 20% auto auto;
 }
 
 .login-text {

@@ -21,6 +21,7 @@ app.post('/signup', (req, res) => {
     const newUser = new User({
         email: req.body.email,
         name: req.body.name,
+        enterprise : req.body.enterprise,
         password: bcrypt.hashSync(req.body.password, 10)
     })
     newUser.save(err => {
