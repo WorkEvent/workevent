@@ -68,6 +68,18 @@ export default {
     }
   }
 }
+
+
+/*
+TO DO :
+
+- Add constraint to forms
+- Slider pour cards ?
+- Installer concurrently pour la mise en ligne
+- Ajouter bouton Home sur la page event
+- Intégrer le front d'Elliot & de Théo
+
+ */
 </script>
 
 <style scoped>

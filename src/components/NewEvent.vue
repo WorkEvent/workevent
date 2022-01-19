@@ -2,6 +2,7 @@
 
 <div>
 
+
   <p class="h2 text-center mt-5">Ajouter un évènement </p>
 
       <v-form ref="form">
@@ -137,6 +138,16 @@ button {
 button:hover {
   color: black;
   transition: 0.5s ease;
+}
+
+
+.home-button {
+  color: white ;
+  font-weight: bold;
+  background-color: rgba(255,193,59,1);
+  border-radius: 5px;
+  width: 10%;
+  float: left;
 }
 </style>
 
