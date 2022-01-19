@@ -1,67 +1,40 @@
 <template>
 
-<div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="form-event col-6 mt-5">
+          <div class="login-title">
+            <p class="h5 login-text text-center pt-2">Ajouter un évènement</p>
+          </div>
+          <div class="input-mail col-12 pt-2">
+            <p>Nom de l'évènement :</p> <input class="w-100 input-area" type="text" v-model="name">
+          </div>
+          <div class="input-mail col-12 pt-2">
+            <p>Nombre de participants max : </p> <input class="w-100 input-area" type="text" v-model="attendance">
+          </div>
 
+          <div class="input-mail col-12 pt-2">
+            <p>type d'évènement</p> <input class="w-100 input-area" type="text" v-model="type">
+          </div>
 
-  <p class="h2 text-center mt-5">Ajouter un évènement </p>
+          <div class="input-mail col-12 pt-2">
+            <p>Horaire </p> <input class="w-100 input-area" type="text" v-model="time">
+          </div>
+          <div class="input-mail col-12 pt-2">
+            <p>Date : </p> <input class="w-100 input-area" type="text" v-model="eventdate" placeholder="AAAA-MM-JJ">
+          </div>
 
-      <v-form ref="form">
-        <v-container
-        >
-          <v-row
-              no-gutters
-          >
-            <v-col class="col-3"
-                   no-gutters
-            >
-              <img alt="society event"  class="society-event w-75 d-block" src="https://arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/5XUY3OGMSJOPU4WV6NDHKL7BYA.jpg">
-            </v-col>
-            <v-col
-                class="col-6 mx-auto"
-            >
-              <v-text-field
-                  v-model="name"
-                  label="Nom de l'événèment"
-                  required
-              ></v-text-field>
+          <div class="input-mail col-12 pt-2">
+            <p>Illustration</p> <input class="w-100 input-area" type="text" v-model="picture">
+        </div>
 
-              <v-text-field
-                  v-model="attendance"
-                  label="Nombre de personnes max"
-                  required
-              ></v-text-field>
-              <v-text-field
-                  v-model="type"
-                  label="Type d'activité"
-                  required
-              ></v-text-field>
-              <v-text-field
-                  v-model="time"
-                  label="Horaire"
-                  required
-              ></v-text-field>
-
-              <v-text-field
-                  v-model="picture"
-                  label="Illustration"
-                  required
-              ></v-text-field>
-
-
-              <button class="mt-3" @click="newEvent">Organiser l'évènement</button>
-            </v-col>
-            <v-col class="col-3"
-                   no-gutters
-            >
-              <img alt="societyevent"  class="society-event w-75 d-block" src="https://arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/5XUY3OGMSJOPU4WV6NDHKL7BYA.jpg">
-            </v-col>
-          </v-row>
-
-        </v-container>
-
-      </v-form>
+          <div class="login-button col-12  mx-auto w-25 pt-4">
+            <button class="w-100 login-button-click" @click="newEvent">Add Event</button>
+          </div>
+      </div>
     </div>
-</template>
+    </div>
+  </template>
 
 <script>
 import axios from "axios";
@@ -70,11 +43,13 @@ export default {
   name: "NewEvent",
   data() {
     return {
-      eventid :  Math.floor((Math.random() * 10) + 1),
+
+      eventid : Math.floor((Math.random() * 10) + 1),
       name : '',
       attendance : '',
       type : '',
       time : '',
+      eventdate : '',
       picture : '',
     }
   },
@@ -86,6 +61,7 @@ export default {
         attendance : parseInt(this.attendance),
         type : this.type,
         time : this.time,
+        eventdate : new Date(this.eventdate),
         picture : this.picture,
       }
       axios.post('http://localhost:5000/newevent', newEvent)
@@ -102,52 +78,45 @@ export default {
   }
 }
 
-/* TO DO :
 
-  - Ajouter un champ Date
-
- */
 
 </script>
 
+
 <style scoped>
-.society-event {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50%;
-
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-body, html {
+.form-event {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-area {
   font-family: Roboto,sans-serif;
+  background-color: rgba(239,239,239,1);
+  border-radius: 5px;
+  border-color: rgba(133,133,133,1);
 
 }
 
+.input-mail {
 
-button {
+  font-family: Roboto,sans-serif;
+  font-weight: bold;
+}
+
+.login-button-click {
+  font-family: Roboto,sans-serif;
   color: white ;
   font-weight: bold;
   background-color: rgba(255,193,59,1);
   border-radius: 5px;
-  width: 40%;
-  display:  block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-button:hover {
-  color: black;
-  transition: 0.5s ease;
-}
-
-
-.home-button {
-  color: white ;
-  font-weight: bold;
-  background-color: rgba(255,193,59,1);
-  border-radius: 5px;
   width: 10%;
   float: left;
 }
+
 </style>
 

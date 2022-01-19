@@ -3,6 +3,9 @@
     <button @click="logout">Se déconnecter</button>
     <h1>HELLO {{ name }}</h1>
     <h2>your email is: {{ email }}</h2>
+    <h2>your email is: {{ society }}</h2>
+
+
 
 
     <div class="grid-container"></div>
@@ -28,10 +31,9 @@ export default {
     return {
       name: '',
       email: '',
-      eventkdo : '',
+      society : '',
       eventid : Number,
       eventname : [],
-      eventattendance : undefined
     }
   },
   created() {
@@ -44,6 +46,7 @@ export default {
         .then(res => {
           this.name = res.data.user.name;
           this.email = res.data.user.email;
+          this.society = res.data.user.society;
         })
     axios.get('http://localhost:5000/event')
       .then(res => {

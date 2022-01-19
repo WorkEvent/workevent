@@ -1,16 +1,22 @@
 <template>
   <div>
     <button @click="logout">Se déconnecter</button>
-    <h2>Bonjour {{ name }}</h2>
+    <h2>Bonjour {{ name }} </h2>
 <br><br>
 
     <div class="grid-container">
+      <v-carousel
+          hide-delimiter-background
+      >
 
-      <ul v-for="item in eventname" :key="item.eventid">
-        <v-card
+
+      <v-carousel-item v-for="item in eventname" :key="item.eventid">
+        <v-app>
+
+          <v-card
             :loading="loading"
-            class="mx-auto my-12"
-            max-width="344"
+            class="mx-auto"
+            max-width="400"
         >
           <template slot="progress">
             <v-progress-linear
@@ -25,7 +31,7 @@
               :src="item.picture"
           ></v-img>
 
-          <v-card-title>{{ item.name }}</v-card-title>
+          <v-card-title CLASS="text-center mt-2 fw-bold h5">{{ item.name }}</v-card-title>
 
           <v-card-text>
             <v-row
@@ -38,51 +44,36 @@
               <b>{{ item.typeofevent }}</b>
             </div>
 
+            <div class="my-4 text-subtitle-1">
+              <b>{{ item.eventdate }}</b>
+            </div>
+
+
             <div>{{ item.typeofevent }} prévu pour un maximum de <b>{{ item.attendance }}</b> personnes</div>
           </v-card-text>
 
-          <v-divider class="mx-4"></v-divider>
+            <v-card-title>{{ item.time }}</v-card-title>
 
-          <v-card-title>{{ item.time }}</v-card-title>
-
-          <v-card-text>
-            <v-chip-group
-                v-model="selection"
-                active-class="deep-purple accent-4 white--text"
-                column
-            >
-              <v-chip>{{ item.time }}</v-chip>
-            </v-chip-group>
-          </v-card-text>
-
-          <v-card-actions>
+            <v-card-actions>
             <v-btn
                 color="deep-purple lighten-2"
                 text
-                @click="reserve"
             >
               Voter
             </v-btn>
           </v-card-actions>
         </v-card>
-      </ul>
+        </v-app>
+
+      </v-carousel-item>
+      </v-carousel>
     </div>
-    <br>
-
-    <v-btn @click="retur" class="retur" color="yellow" elevation="2"> Retour </v-btn>
-      
-
-
-
-
-
-
   </div>
 </template>
 <script>
 import axios from 'axios';
 export default {
-  name: 'Landing',
+  name: 'Vote',
   data() {
     return {
       name: '',
@@ -90,7 +81,8 @@ export default {
       eventkdo : '',
       eventid : Number,
       eventname : [],
-      eventattendance : undefined
+      eventdate : '',
+      eventattendance : Number
     }
   },
   created() {
@@ -109,6 +101,7 @@ export default {
 
         this.eventname = res.data
         console.log(this.eventname)
+        console.log(this.eventdate)
       })
 
 

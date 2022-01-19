@@ -13,6 +13,7 @@
           <div class="input-mail col-12 pt-2">
             <p>Mot de passe :</p> <input class="w-100 input-area" type="password" v-model="password">
           </div>
+
           <div class="login-button col-12 ml-5 w-100 pt-4">
             <button class="w-100 login-button-click" @click="login">Connexion</button>
           </div>

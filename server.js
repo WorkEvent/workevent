@@ -21,7 +21,7 @@ app.post('/signup', (req, res) => {
     const newUser = new User({
         email: req.body.email,
         name: req.body.name,
-        enterprise : req.body.enterprise,
+        society : req.body.society,
         password: bcrypt.hashSync(req.body.password, 10)
     })
     newUser.save(err => {
@@ -42,6 +42,7 @@ app.post('/newevent', (req, res) => {
         eventid : req.body.eventid,
         name : req.body.name,
         attendance : req.body.attendance,
+        eventdate : req.body.eventdate,
         type : req.body.type,
         time : req.body.time,
         picture : req.body.picture,
@@ -103,7 +104,7 @@ app.get('/user', (req, res) => {
                 user: {
                     email: user.email,
                     name: user.name,
-                    event : user.event
+                    society : user.society
                 }
             })
         })

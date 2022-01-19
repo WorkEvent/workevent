@@ -14,7 +14,8 @@
             <p>Email :</p> <input class="w-100 input-area" type="text" v-model="email">
           </div>
           <div class="input-mail col-12 pt-2">
-            <p>Société : </p> <input class="w-100 input-area" type="text" v-model="enterprise">
+
+            <p>Entreprise : </p> <input class="w-100 input-area" type="text" v-model="society">
           </div>
           <div class="input-mail col-12 pt-2">
             <p>Mot de passe :</p> <input class="w-100 input-area" type="password" v-model="password">
@@ -41,6 +42,7 @@ export default {
     return {
       name: '',
       email: '',
+      society : '',
       password: '',
       enterprise :''
     }
@@ -51,7 +53,7 @@ export default {
         name: this.name,
         email: this.email,
         password: this.password,
-        enterprise : this.enterprise
+        society : this.society,
       }
       axios.post('http://localhost:5000/signup', newUser)
           .then(res => {
