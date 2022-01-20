@@ -1,37 +1,35 @@
 <template>
   <div>
-    <button @click="logout">Se déconnecter</button>
-    <h2>Bonjour {{ name }} </h2>
-<br><br>
 
-    <div class="grid-container">
-      <v-carousel
-          hide-delimiter-background
-      >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <button class="login-button-click" @click="profile">Mon profil</button>
+          <button class="login-button-click" @click="logout">Se déconnecter</button>
+        </div>
+        <h2 class="text-center">Votre profil</h2>
+      </div>
+    </div>
+
+    <h2 class="text-center mt-5">Voter pour le prochain évènement !</h2>
+
+    <div class="grid-container mt-5">
 
 
-      <v-carousel-item v-for="item in eventname" :key="item.eventid">
-        <v-app>
+
+      <ul v-for="item in eventname" :key="item.eventid">
+
 
           <v-card
-            :loading="loading"
             class="mx-auto"
-            max-width="400"
+            max-width="374"
         >
-          <template slot="progress">
-            <v-progress-linear
-                color="deep-purple"
-                height="10"
-                indeterminate
-            ></v-progress-linear>
-          </template>
-
-          <v-img
+            <v-img
               height="250"
               :src="item.picture"
           ></v-img>
 
-          <v-card-title CLASS="text-center mt-2 fw-bold h5">{{ item.name }}</v-card-title>
+          <v-card-title class="mt-2 fw-bold h5 ">{{ item.name }} - {{ item.type }} - {{ item.time }}</v-card-title>
 
           <v-card-text>
             <v-row
@@ -40,33 +38,23 @@
             >
             </v-row>
 
-            <div class="my-4 text-subtitle-1">
-              <b>{{ item.typeofevent }}</b>
+
+
+            <div class="text-subtitle-1 h6">
+              <b>Date : {{ item.eventdate }}</b>
             </div>
 
-            <div class="my-4 text-subtitle-1">
-              <b>{{ item.eventdate }}</b>
-            </div>
 
-
-            <div>{{ item.typeofevent }} prévu pour un maximum de <b>{{ item.attendance }}</b> personnes</div>
+            <div>{{ item.type }} prévu pour un maximum de <b>{{ item.attendance }}</b> personnes</div>
           </v-card-text>
+            <div class="col-6 text-center vote-button-section">
+              <button class="w-100 mx-auto mb-3 vote-btn">Add Event</button>
 
-            <v-card-title>{{ item.time }}</v-card-title>
+            </div>
 
-            <v-card-actions>
-            <v-btn
-                color="deep-purple lighten-2"
-                text
-            >
-              Voter
-            </v-btn>
-          </v-card-actions>
+
         </v-card>
-        </v-app>
-
-      </v-carousel-item>
-      </v-carousel>
+      </ul>
     </div>
   </div>
 </template>
@@ -111,8 +99,8 @@ export default {
       localStorage.clear();
 
     },
-    retur(){
-        this.$router.push('/');
+    profile(){
+        this.$router.push('/myprofile');
     },
   }
 }
@@ -123,15 +111,39 @@ export default {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   justify-content: center;
   gap: 30px;
   column-gap: 30px;
 
 }
 
-.retur {
-    margin-left: 48%;
+.vote-btn {
+  font-family: Roboto,sans-serif;
+  color: white ;
+  font-weight: bold;
+  background-color: rgba(255,193,59,1);
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vote-button-section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body html {
+  background-color: #F5F0E1;
+}
+.login-button-click {
+  font-family: Roboto,sans-serif;
+  color: white ;
+  font-weight: bold;
+  background-color: rgba(255,193,59,1);
+  border-radius: 5px;
+  width: 20%;
+  margin-left: 1%;
 }
 
 

@@ -7,6 +7,7 @@
           <div class="login-title">
             <p class="h5 login-text text-center pt-2">Inscription</p>
           </div>
+
           <div class="input-mail col-12 pt-2">
             <p>Nom :</p> <input class="w-100 input-area" type="text" v-model="name">
           </div>
@@ -14,8 +15,10 @@
             <p>Email :</p> <input class="w-100 input-area" type="text" v-model="email">
           </div>
           <div class="input-mail col-12 pt-2">
-
             <p>Entreprise : </p> <input class="w-100 input-area" type="text" v-model="society">
+          </div>
+          <div class="input-mail col-12 pt-2">
+            <p>Prénom : </p> <input class="w-100 input-area" type="text" v-model="first">
           </div>
           <div class="input-mail col-12 pt-2">
             <p>Mot de passe :</p> <input class="w-100 input-area" type="password" v-model="password">
@@ -43,31 +46,42 @@ export default {
       name: '',
       email: '',
       society : '',
+      first : '',
       password: '',
-      enterprise :''
     }
   },
   methods: {
     signup() {
-      let newUser = {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-        society : this.society,
+
+      if (this.email.includes('@') === false ) {
+        alert('Mail invalide !')
       }
-      axios.post('http://localhost:5000/signup', newUser)
-          .then(res => {
-            console.log(res)
-            this.error = '';
-            this.$router.push('/login');
-          }, err => {
-            console.log(err.response)
-            this.error = err.response.data.error
-          })
+      else {
+
+        let newUser = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          society: this.society,
+          first : this.first
+        }
+        axios.post('http://localhost:5000/signup', newUser)
+            .then(res => {
+              console.log(res)
+              this.error = '';
+              this.$router.push('/');
+            }, err => {
+              console.log(err.response)
+              this.error = err.response.data.error
+            })
+
+      }
     },
-    clickLogin() {
-      this.$router.push('/login');
-    }
+      clickLogin()
+      {
+        this.$router.push('/');
+      }
+
   }
 }
 
@@ -76,7 +90,6 @@ export default {
 TO DO :
 
 - Add constraint to forms
-- Slider pour cards ?
 - Installer concurrently pour la mise en ligne
 - Ajouter bouton Home sur la page event
 - Intégrer le front d'Elliot & de Théo

@@ -1,23 +1,53 @@
 <template>
   <div>
-    <button @click="logout">Se déconnecter</button>
-    <h1>HELLO {{ name }}</h1>
-    <h2>your email is: {{ email }}</h2>
-    <h2>your email is: {{ society }}</h2>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <button class="login-button-click" @click="logout">Se déconnecter</button>
+        </div>
+        <h2 class="text-center">Votre profil</h2>
+      </div>
+    </div>
 
 
 
 
-    <div class="grid-container"></div>
-      <v-btn @click="govote" class="vote" color="yellow" elevation="2"> Voter
-      </v-btn>
+
+
+    <v-card class="w-50 mx-auto mt-4">
+      <img src="../assets/profile-user.png" class="profile-icon pt-3">
+      <h4 class="text-center mt-3"> {{ first }} {{ name }}</h4>
+      <div class="container-fluid">
+        <div class="row info">
+          <h5>Informations personelles</h5>
+          <div class="col-6">
+            <p class="w-100 fw-bold mt-2 mb-0">Nom :</p>
+            <p class="w-100">{{ name }}</p>
+          </div>
+          <div class="col-6">
+            <p class="w-100 fw-bold mt-2 mb-0">Prénom</p>
+            <p class="w-100">{{ first }}</p>
+          </div>
+
+         <div class="col-6">
+           <p class="w-100 fw-bold mt-2 mb-0">Email :</p>
+           <p class="w-100">{{ email }}</p>
+         </div>
+          <div class="col-6">
+            <p class="w-100 fw-bold mt-2 mb-0">Entreprise :</p>
+            <p class="w-100">{{ society }}</p>
+          </div>
+          <div class="col-12">
+            <button class="vote-button-click" @click="govote">Voter pour le prochain évènement</button>
+
+          </div>
+        </div>
+      </div>
 
 
 
-
-    <ul v-for="item in eventname" :key="item.eventid">
-      {{ item.name }}
-    </ul>
+    </v-card>
 
 
 
@@ -32,13 +62,14 @@ export default {
       name: '',
       email: '',
       society : '',
+      first : '',
       eventid : Number,
       eventname : [],
     }
   },
   created() {
     if (localStorage.getItem('token') === null) {
-      this.$router.push('/login');
+      this.$router.push('/');
     }
   },
   mounted() {
@@ -47,6 +78,8 @@ export default {
           this.name = res.data.user.name;
           this.email = res.data.user.email;
           this.society = res.data.user.society;
+          this.first = res.data.user.first;
+
         })
     axios.get('http://localhost:5000/event')
       .then(res => {
@@ -60,7 +93,7 @@ export default {
   methods: {
     logout() {
       localStorage.clear();
-      this.$router.push('/login');
+      this.$router.push('/');
     },
 
     govote() {
@@ -73,19 +106,37 @@ export default {
 <style scoped>
 
 
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  justify-content: center;
-  gap: 30px;
-  column-gap: 30px;
-
+body html {
+  background-color: #F5F0E1;
 }
 
-.vote {
-  width : 150px;
-  margin-left: 47%;
-  margin-top : 2%;
+.profile-icon {
+  display: block;
+  width: 15%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-button-click {
+  font-family: Roboto,sans-serif;
+  color: white ;
+  font-weight: bold;
+  background-color: rgba(255,193,59,1);
+  border-radius: 5px;
+  width: 20%;
+  margin-left: 1%;
+}
+
+.vote-button-click {
+  font-family: Roboto,sans-serif;
+  color: white ;
+  font-weight: bold;
+  background-color: rgba(255,193,59,1);
+  border-radius: 5px;
+  width: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 </style>

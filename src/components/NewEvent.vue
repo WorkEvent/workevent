@@ -61,7 +61,7 @@ export default {
         attendance : parseInt(this.attendance),
         type : this.type,
         time : this.time,
-        eventdate : new Date(this.eventdate),
+        eventdate : this.eventdate,
         picture : this.picture,
       }
       axios.post('http://localhost:5000/newevent', newEvent)

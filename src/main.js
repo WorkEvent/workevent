@@ -12,9 +12,9 @@ import NewEvent from "./components/NewEvent";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: Landing },
+  { path: '/myprofile', component: Landing },
   { path: '/signup', component: Signup },
-  { path: '/login', component: Login },
+  { path: '/', component: Login },
   { path: '/vote', component: Vote },
   { path : '/event', component: NewEvent}
 ]

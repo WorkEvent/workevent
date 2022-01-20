@@ -5,6 +5,7 @@ const UserSchema = new Schema({
     name : String,
     email : String,
     society : String,
+    first : String,
     password : String
 });
 

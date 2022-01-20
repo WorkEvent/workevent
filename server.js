@@ -22,6 +22,8 @@ app.post('/signup', (req, res) => {
         email: req.body.email,
         name: req.body.name,
         society : req.body.society,
+        first : req.body.first,
+
         password: bcrypt.hashSync(req.body.password, 10)
     })
     newUser.save(err => {
@@ -104,7 +106,10 @@ app.get('/user', (req, res) => {
                 user: {
                     email: user.email,
                     name: user.name,
-                    society : user.society
+                    society : user.society,
+                    first : user.first
+
+
                 }
             })
         })
