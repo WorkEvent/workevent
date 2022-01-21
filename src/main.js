@@ -8,6 +8,7 @@ import Vote from './components/Vote';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import vuetify from './plugins/vuetify'
 import NewEvent from "./components/NewEvent";
+import Shop from './components/Shop';
 
 Vue.use(VueRouter);
 
@@ -16,7 +17,8 @@ const routes = [
   { path: '/signup', component: Signup },
   { path: '/', component: Login },
   { path: '/vote', component: Vote },
-  { path : '/event', component: NewEvent}
+  { path : '/event', component: NewEvent},
+  { path : '/shop', component: Shop}
 ]
 
 const router = new VueRouter({
