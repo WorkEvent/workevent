@@ -1,6 +1,8 @@
 <template>
 
   <div>
+
+    <div></div>
       
     <div class="container-fluid">
       <div class="row">
@@ -98,7 +100,7 @@
         </div>
     </div>
 
-<div class="a-box">
+    <div class="a-box">
         <div class="img-container">
             <div class="img-inner">
                 <div class="inner-skew">
@@ -160,6 +162,9 @@ export default {
     },
     profile(){
         this.$router.push('/myprofile');
+    },
+    shop(){
+        this.$router.push('/shop');
     },
   }
 }
