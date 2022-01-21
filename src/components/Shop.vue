@@ -1,8 +1,6 @@
 <template>
 
   <div>
-
-    <div></div>
       
     <div class="container-fluid">
       <div class="row">
@@ -15,104 +13,106 @@
 
     <h2 class="text-center mt-5">Echangez vos points pour des récompenses</h2>
 
-    <div class="a-box">
-        <div class="img-container">
-            <div class="img-inner">
-                <div class="inner-skew">
-                    <img src="../assets/carte-cadeau.png">
+    <div class="prices">
+        <div class="a-box">
+            <div class="img-container">
+                <div class="img-inner">
+                    <div class="inner-skew">
+                        <img src="../assets/carte-cadeau.png">
+                    </div>
+                </div>
+            </div>
+            <div class="text-container">
+                <h3>Carte cadeau - 100€</h3>
+                <div>Carte cadeau dans votre magasin préféré pour une valeur de 100€.</div>
+                <div class="col-6 text-center vote-button-section">
+                    <button class="w-100 mx-auto mb-3 vote-btn">500 points</button>
                 </div>
             </div>
         </div>
-        <div class="text-container">
-            <h3>Carte cadeau - 100€</h3>
-            <div>Carte cadeau dans votre magasin préféré pour une valeur de 100€.</div>
-            <div class="col-6 text-center vote-button-section">
-                <button class="w-100 mx-auto mb-3 vote-btn">500 points</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="a-box">
-        <div class="img-container">
-            <div class="img-inner">
-                <div class="inner-skew">
-                    <img src="../assets/chocolat.jpg">
+        <div class="a-box">
+            <div class="img-container">
+                <div class="img-inner">
+                    <div class="inner-skew">
+                        <img src="../assets/chocolat.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="text-container">
+                <h3>Coffret chocolat - 500g</h3>
+                <div>Coffre chocolat 500g de votre choix</div>
+                <div class="col-6 text-center vote-button-section">
+                    <button class="w-100 mx-auto mb-3 vote-btn">350 points</button>
                 </div>
             </div>
         </div>
-        <div class="text-container">
-            <h3>Coffret chocolat - 500g</h3>
-            <div>Coffre chocolat 500g de votre choix</div>
-            <div class="col-6 text-center vote-button-section">
-                <button class="w-100 mx-auto mb-3 vote-btn">350 points</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="a-box">
-        <div class="img-container">
-            <div class="img-inner">
-                <div class="inner-skew">
-                    <img src="../assets/asterix.jpg">
+        <div class="a-box">
+            <div class="img-container">
+                <div class="img-inner">
+                    <div class="inner-skew">
+                        <img src="../assets/asterix.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="text-container">
+                <h3>Billet Parc Astérix</h3>
+                <div>1 jour au parc Astérix avec une formule midi offerte</div>
+                <div class="col-6 text-center vote-button-section">
+                    <button class="w-100 mx-auto mb-3 vote-btn">450 points</button>
                 </div>
             </div>
         </div>
-        <div class="text-container">
-            <h3>Billet Parc Astérix</h3>
-            <div>1 jour au parc Astérix avec une formule midi offerte</div>
-            <div class="col-6 text-center vote-button-section">
-                <button class="w-100 mx-auto mb-3 vote-btn">450 points</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="a-box">
-        <div class="img-container">
-            <div class="img-inner">
-                <div class="inner-skew">
-                    <img src="../assets/disney.jpg">
+        <div class="a-box">
+            <div class="img-container">
+                <div class="img-inner">
+                    <div class="inner-skew">
+                        <img src="../assets/disney.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="text-container">
+                <h3>Billet Parc Disneyland</h3>
+                <div>1 jour au parc Disneyland Paris</div>
+                <div class="col-6 text-center vote-button-section">
+                    <button class="w-100 mx-auto mb-3 vote-btn">450 points</button>
                 </div>
             </div>
         </div>
-        <div class="text-container">
-            <h3>Billet Parc Disneyland</h3>
-            <div>1 jour au parc Disneyland Paris</div>
-            <div class="col-6 text-center vote-button-section">
-                <button class="w-100 mx-auto mb-3 vote-btn">450 points</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="a-box">
-        <div class="img-container">
-            <div class="img-inner">
-                <div class="inner-skew">
-                    <img src="../assets/wonderbox-duo.jpg">
+        <div class="a-box">
+            <div class="img-container">
+                <div class="img-inner">
+                    <div class="inner-skew">
+                        <img src="../assets/wonderbox-duo.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="text-container">
+                <h3>Wonderbox Duo</h3>
+                <div>Nuit insolite pour 2 personnes</div>
+                <div class="col-6 text-center vote-button-section">
+                    <button class="w-100 mx-auto mb-3 vote-btn">650 points</button>
                 </div>
             </div>
         </div>
-        <div class="text-container">
-            <h3>Wonderbox Duo</h3>
-            <div>Nuit insolite pour 2 personnes</div>
-            <div class="col-6 text-center vote-button-section">
-                <button class="w-100 mx-auto mb-3 vote-btn">650 points</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="a-box">
-        <div class="img-container">
-            <div class="img-inner">
-                <div class="inner-skew">
-                    <img src="../assets/jbl.jpg">
+        <div class="a-box">
+            <div class="img-container">
+                <div class="img-inner">
+                    <div class="inner-skew">
+                        <img src="../assets/jbl.jpg">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="text-container">
-            <h3>Enceinte Bluetooth</h3>
-            <div>Enceinte Bluetooth de votre choix pour une valeur max de 130€</div>
-            <div class="col-6 text-center vote-button-section">
-                <button class="w-100 mx-auto mb-3 vote-btn">550 points</button>
+            <div class="text-container">
+                <h3>Enceinte Bluetooth</h3>
+                <div>Enceinte Bluetooth de votre choix pour une valeur max de 130€</div>
+                <div class="col-6 text-center vote-button-section">
+                    <button class="w-100 mx-auto mb-3 vote-btn">550 points</button>
+                </div>
             </div>
         </div>
     </div>
@@ -178,6 +178,10 @@ body {
   padding: 30px;
   background: #f8f4f2;
   font-family: Arial;
+}
+
+.prices {
+  text-align:center;
 }
 
 .login-button-click {
